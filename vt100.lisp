@@ -126,7 +126,7 @@
 (defconstant dim 2)
 (defconstant underscore 4)	
 (defconstant blink 5)
-(defconstant reverse 7)
+(defconstant reverse* 7)
 (defconstant hidden 8)
 (defconstant foreground-black 30)
 (defconstant foreground-red 31)

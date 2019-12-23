@@ -83,7 +83,7 @@
    #:dim
    #:underscore
    #:blink
-   #:reverse
+   #:reverse*
    #:hidden
    #:foreground-black
    #:foreground-red
