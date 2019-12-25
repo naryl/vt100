@@ -197,7 +197,7 @@ Sets multiple display attribute settings. The following lists standard attribute
                 :until (eql c terminate)
                 :do (push c result))
              (parse-integer (coerce (reverse result) 'string)))))
-    (vt100:query-cursor-position)
+    (query-cursor-position)
     (finish-output)
     (ensure-char #\Esc)
     (ensure-char #\[)
