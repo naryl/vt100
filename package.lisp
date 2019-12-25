@@ -100,5 +100,9 @@
    #:background-blue
    #:background-magenta
    #:background-cyan
-   #:background-white))
+   #:background-white
+
+   ;; High-level stuff
+   #:get-cursor-position
+   ))
 

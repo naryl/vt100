@@ -183,3 +183,24 @@ Sets multiple display attribute settings. The following lists standard attribute
                 format-string (butlast rest))
         (format t format-string rest))))        ; " [{attr1};...;{attrn}m"
 
+
+;;; High-level stuff (the one I needed at least)
+
+(defun get-cursor-position ()
+  "Only run this in raw-mode. E.g. use the trivial-raw-io library."
+  (flet ((ensure-char (c)
+           (unless (eql c (read-char))
+             (error "Invalid query-cursor-position reply!")))
+         (read-int (terminate)
+           (let ((result nil))
+             (loop :for c := (read-char)
+                :until (eql c terminate)
+                :do (push c result))
+             (parse-integer (coerce (reverse result) 'string)))))
+    (vt100:query-cursor-position)
+    (finish-output)
+    (ensure-char #\Esc)
+    (ensure-char #\[)
+    (let ((row (read-int #\;))
+          (col (read-int #\R)))
+      (list row col))))
